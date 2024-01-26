@@ -1,9 +1,25 @@
 <div class="main">
   <h1>My To Do List</h1>
   <h2>What would you like to do today?</h2>
-  <input name="new-item" id="new-item" placeholder="add new item" (keyup)="addItem($event)"/>
-  <button name="add-item-btn" id="add-item-btn">Add Item</button>
-  <ul>
-    <li *ngFor="let item of getItems()">{{item.description}}</li>
+  
+  <!--
+  <input 
+      
+      name="new-item" 
+      id="new-item" 
+      placeholder="add new item" 
+      (keyup.enter)="addItem($event)"/>// and on addItem(Event:any){console.log(event.taget.value)}
+  <ul>                                 // but here I want on enter press and on button click to call the same function(addItem)
+                                       // so I use the property #newItem as in below 
+  -->
+  <input 
+      #newItem
+      name="new-item" 
+      id="new-item" 
+      placeholder="add new item" 
+      (keyup.enter)="addItem(newItem.value)"/>
+  <ul> 
+  <button (click)="addItem(newItem.value)">Add New Item</button>
+    <li *ngFor="let item of getItems">{{item.description}}</li>
   </ul>
 </div>

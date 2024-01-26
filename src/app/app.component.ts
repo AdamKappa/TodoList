@@ -20,18 +20,17 @@ export class AppComponent {
     { description: "laugh", done: false },
   ];
   
-  getItems() {
+  get getItems() {
     if (this.filter === "all") {
       return this.allItems;
     }
-   
     return this.allItems.filter((item) => item.done == true);//add condition for done= false
   }
 
+  addItem(desc:string): void {
+    let newItem = { description: desc, done: false };
+    console.log("newItem",newItem);
+    this.allItems.push(newItem);
+  }   
 
-  addItem(e:KeyboardEvent) {
-    console.log(e.target.value);
-    //let newItem = { description: event.target.value, done: false };
-    //this.allItems.push(newItem);
-  }
 }
