@@ -17,9 +17,11 @@
       name="new-item" 
       id="new-item" 
       placeholder="add new item" 
-      (keyup.enter)="addItem(newItem.value)"/>
+      (keyup.enter)="addItem(newItem.value)"
+      autofocus 
+  />
   <ul> 
-  <button (click)="addItem(newItem.value)">Add New Item</button>
+  <button class="btn-primary" (click)="addItem(newItem.value)">Add New Item</button>
     <li *ngFor="let item of getItems()">{{item.description}}</li>
   </ul>
 </div>
