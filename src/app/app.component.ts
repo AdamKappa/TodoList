@@ -1,17 +1,20 @@
 import { Component } from '@angular/core';
 import { CommonModule} from '@angular/common';
+import { ItemComponent } from './item/item.component';
+import { Item } from "./item"
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = "TodoList app";
-
   filter: "all" | "active" | "done" = "all";
+  
 
   allItems = [
     { description: "eat", done: true },
@@ -31,6 +34,12 @@ export class AppComponent {
     let newItem = { description: desc, done: false };
     console.log("newItem",newItem);
     this.allItems.push(newItem);
-  }   
+  }
+
+  removeItem(data: Item) {
+    //removes 1 item, starting from data's index on allItems array->this.allItems.indexOf(data)
+    //ATTENSION!! its sPlice() not slice()
+    this.allItems.splice(this.allItems.indexOf(data), 1);
+  }
 
 }

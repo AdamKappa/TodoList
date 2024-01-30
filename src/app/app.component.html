@@ -22,6 +22,8 @@
   />
   <ul> 
   <button class="btn-primary" (click)="addItem(newItem.value)">Add New Item</button>
-    <li *ngFor="let item of getItems()">{{item.description}}</li>
+    <li *ngFor="let item of getItems()">
+    <app-item [myItem]="item" (removeEvent)=removeItem($event)></app-item>
+  </li>
   </ul>
 </div>
