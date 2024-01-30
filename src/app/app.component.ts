@@ -30,16 +30,20 @@ export class AppComponent {
     return this.allItems.filter((item) => item.done == true);//add condition for done= false
   }
 
-  addItem(desc:string): void {
-    let newItem = { description: desc, done: false };
-    console.log("newItem",newItem);
-    this.allItems.push(newItem);
+  addItem(desc: string): void {
+    if (!desc) {
+      alert("no empty values allowed");
+    }
+    else {
+      let newItem = { description: desc, done: false };
+      console.log("newItem", newItem);
+      this.allItems.push(newItem);
+    }
   }
 
-  removeItem(data: Item) {
+  removeItem(data: Item):void {
     //removes 1 item, starting from data's index on allItems array->this.allItems.indexOf(data)
-    //ATTENSION!! its sPlice() not slice()
+    //ATTENTION!! its sPlice() not slice()
     this.allItems.splice(this.allItems.indexOf(data), 1);
   }
-
 }

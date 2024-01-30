@@ -1,5 +1,18 @@
-<div>
+<div *ngIf="editable != true">
     <span>{{myItem.description}}</span>
-    <button>📝</button>
+    <button (click)="editable = true;">📝</button>
     <button (click)="deleteItem(myItem)">❌</button>
+</div>
+<div *ngIf="editable === true">
+    <h5>Edit Item {{myItem.description}}</h5>
+    <input
+        #newDesc
+        name="new-description"
+        id="new-description"
+        placeholder="type a new description"
+        (keyup.enter)="addNewDescription(newDesc.value)"
+        autofocus
+    />
+    <button (click)="addNewDescription(newDesc.value)">Save</button>
+    <button (click)="cancelEditing()">Cancel</button>
 </div>

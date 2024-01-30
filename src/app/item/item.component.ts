@@ -1,15 +1,17 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule} from '@angular/common';
 import { Item } from "../item";
 
 
 @Component({
   selector: 'app-item',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './item.component.html',
   styleUrl: './item.component.css'
 })
 export class ItemComponent {
+  editable: boolean = false;
   /**
    * Note: The ! in the class's property declaration is called a definite assignment assertion. 
    * This operator tells Typescript that the item field is always initialized 
@@ -22,12 +24,26 @@ export class ItemComponent {
   
   /**
    * we have to emit the button click event from itemComponent to parent(AppComponent)
+   * ............<Item>..............
    */
   @Output() removeEvent = new EventEmitter<Item>();
   //
-  deleteItem(data: Item) {
-    console.log("deleting event on ItemComponent");
+  deleteItem(data: Item):void {
+    //emit the named removeEvent with data:Item to parent component (here AppComponent)
     this.removeEvent.emit(data);
   }
 
+  addNewDescription(desc: string): void{
+    if (!desc) {
+      alert("no empty values allowed");
+    }
+    else {
+      this.editable = false;
+      this.myItem.description = desc;
+    }
+  }
+
+  cancelEditing(): void {
+    this.editable = false;
+  }
 }
