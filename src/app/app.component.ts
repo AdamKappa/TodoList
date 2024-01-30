@@ -20,7 +20,7 @@ export class AppComponent {
     { description: "laugh", done: false },
   ];
   
-  get getItems() {
+  getItems() {
     if (this.filter === "all") {
       return this.allItems;
     }
