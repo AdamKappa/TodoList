@@ -1,0 +1,36 @@
+.item-btn{
+    width:25px;
+    height: 25px;
+    text-align: left;
+    margin-right: 5px;
+}
+
+.item-desc{
+    overflow-wrap:anywhere;
+}
+
+.item-btn-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.item-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.edit-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:5px;
+}
+.edit-title{
+    margin:5px;
+}
+.new-description{
+    width: 50%;
+    height: 25px;
+}

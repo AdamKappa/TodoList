@@ -16,13 +16,15 @@
       #newItem
       name="new-item" 
       id="new-item" 
-      placeholder="add new item" 
+      class="new-item"
+      placeholder="new item description" 
       (keyup.enter)="addItem(newItem.value)"
       autofocus 
   />
-  <ul> 
   <button class="btn-primary" (click)="addItem(newItem.value)">Add New Item</button>
-    <li *ngFor="let item of getItems()">
+  <h5 class="no-dotos">Number of ToDos: {{getItems().length}}</h5>
+  <ul>
+    <li *ngFor="let item of getItems()" class="li-item">
     <app-item [myItem]="item" (removeEvent)=removeItem($event)></app-item>
   </li>
   </ul>

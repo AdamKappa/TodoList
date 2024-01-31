@@ -1,18 +1,25 @@
-<div *ngIf="editable != true">
-    <span>{{myItem.description}}</span>
-    <button (click)="editable = true;">📝</button>
-    <button (click)="deleteItem(myItem)">❌</button>
+<div *ngIf="editable != true" class="item-wrapper">
+    <label class="item-desc">{{myItem.description}}</label>
+    <div class="item-btn-wrapper">
+        <button class="item-btn" (click)="editable = true;">📝</button>
+        <button class="item-btn" (click)="deleteItem(myItem)">❌</button>
+    </div>
+    
 </div>
 <div *ngIf="editable === true">
-    <h5>Edit Item {{myItem.description}}</h5>
-    <input
-        #newDesc
-        name="new-description"
-        id="new-description"
-        placeholder="type a new description"
-        (keyup.enter)="addNewDescription(newDesc.value)"
-        autofocus
-    />
-    <button (click)="addNewDescription(newDesc.value)">Save</button>
-    <button (click)="cancelEditing()">Cancel</button>
+    <h5 class="edit-title">Edit Item {{myItem.description}}</h5>
+    <div class="edit-wrapper">
+        <input
+            #newDesc
+            name="new-description"
+            id="new-description"
+            class="new-description"
+            placeholder="type a new description"
+            (keyup.enter)="addNewDescription(newDesc.value)"
+            value="{{myItem.description}}"
+            autofocus
+        />
+        <button class="edit-btn" (click)="addNewDescription(newDesc.value)">Save</button>
+        <button class="edit-btn" (click)="cancelEditing()">Cancel</button>
+    </div>
 </div>
