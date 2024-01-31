@@ -27,7 +27,12 @@ export class AppComponent {
     if (this.filter === "all") {
       return this.allItems;
     }
-    return this.allItems.filter((item) => item.done == true);//add condition for done= false
+    else if (this.filter === "active") {
+      return this.allItems.filter((item) => item.done == false);
+    }
+    else {//this.filter === "done"
+    return this.allItems.filter((item) => item.done == true);
+    }
   }
 
   addItem(desc: string): void {

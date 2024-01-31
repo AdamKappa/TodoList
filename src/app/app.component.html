@@ -1,31 +1,39 @@
 <div class="main">
-  <h1>My To Do List</h1>
-  <h2>What would you like to do today?</h2>
-  
-  <!--
-  <input 
-      
-      name="new-item" 
-      id="new-item" 
-      placeholder="add new item" 
-      (keyup.enter)="addItem($event)"/>// and on addItem(Event:any){console.log(event.taget.value)}
-  <ul>                                 // but here I want on enter press and on button click to call the same function(addItem)
-                                       // so I use the property #newItem as in below 
-  -->
-  <input 
-      #newItem
-      name="new-item" 
-      id="new-item" 
-      class="new-item"
-      placeholder="new item description" 
-      (keyup.enter)="addItem(newItem.value)"
-      autofocus 
-  />
-  <button class="btn-primary" (click)="addItem(newItem.value)">Add New Item</button>
-  <h5 class="no-dotos">Number of ToDos: {{getItems().length}}</h5>
-  <ul>
-    <li *ngFor="let item of getItems()" class="li-item">
-    <app-item [myItem]="item" (removeEvent)=removeItem($event)></app-item>
-  </li>
-  </ul>
+    <h1>My To Do List</h1>
+    <h2>What would you like to do today?</h2>
+
+    <!--
+    <input 
+        
+        name="new-item" 
+        id="new-item" 
+        placeholder="add new item" 
+        (keyup.enter)="addItem($event)"/>// and on addItem(Event:any){console.log(event.taget.value)}
+    <ul>                                 // but here I want on enter press and on button click to call the same function(addItem)
+                                          // so I use the property #newItem as in below 
+    -->
+    <input 
+        #newItem
+        name="new-item" 
+        id="new-item" 
+        class="new-item"
+        placeholder="new item description" 
+        (keyup.enter)="addItem(newItem.value)"
+        autofocus 
+    />
+    <button class="btn-primary" (click)="addItem(newItem.value)">Add New Item</button>
+    <div class="filter-container">
+        <div class="filter">
+            <h5 class="filter-title">Filter: </h5>
+            <button (click)="filter='all'">All</button>
+            <button (click)="filter='active'">Active</button>
+            <button (click)="filter='done'">Done</button>
+        </div>
+        <h5 class="no-dotos">Number of ToDos: {{getItems().length}}</h5>
+    </div>
+    <ul>
+        <li *ngFor="let item of getItems()" class="li-item">
+            <app-item [myItem]="item" (removeEvent)=removeItem($event)></app-item>
+        </li>
+    </ul>
 </div>
