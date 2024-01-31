@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule} from '@angular/common';
 import { ItemComponent } from './item/item.component';
 import { Item } from "./item"
@@ -15,6 +15,18 @@ export class AppComponent {
   title = "TodoList app";
   filter: "all" | "active" | "done" = "all";
   
+  /**
+   * get child element "newItem" reference with name "newItemInput"
+   * to use it for focusing on addItem()
+   * 
+   * Note: The ! in the name declaration is called a definite assignment assertion. 
+   * This operator tells Typescript that the item field is always initialized 
+   * and not undefined, even when TypeScript cannot tell from the 
+   * constructor's definition. If this operator is not included in your code 
+   * and you have strict TypeScript compilation settings, 
+   * the app will fail to compile.
+   */
+  @ViewChild("newItem") newItemInput! : ElementRef;
 
   allItems = [
     { description: "eat", done: true },
@@ -42,7 +54,13 @@ export class AppComponent {
     else {
       let newItem = { description: desc, done: false };
       console.log("newItem", newItem);
+      //add newItem at the end of the array
       this.allItems.push(newItem);
+      //set input field newItemInput value to empty
+      this.newItemInput.nativeElement.value = "";
+      //set focus back to input field newItemInput
+      this.newItemInput.nativeElement.focus();
+      //
     }
   }
 

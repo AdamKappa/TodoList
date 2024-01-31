@@ -25,9 +25,15 @@
     <div class="filter-container">
         <div class="filter">
             <h5 class="filter-title">Filter: </h5>
-            <button (click)="filter='all'">All</button>
-            <button (click)="filter='active'">Active</button>
-            <button (click)="filter='done'">Done</button>
+            <button 
+                (click)="filter = 'all'" 
+                [class.active]="filter == 'all'">All</button>
+            <button 
+                (click)="filter='active'"
+                [class.active]="filter == 'active'">Active</button>
+            <button 
+                (click)="filter='done'"
+                [class.active]="filter == 'done'">Done</button>
         </div>
         <h5 class="no-dotos">Number of ToDos: {{getItems().length}}</h5>
     </div>
