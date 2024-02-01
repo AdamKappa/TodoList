@@ -15,8 +15,6 @@
   }
 }
 
-
-
 ul {
   padding-inline-start: 0;
 }
@@ -64,4 +62,3 @@ ul {
 .active {
   color: lime;
 }
-

@@ -51,18 +51,19 @@ export class AppComponent {
   addItem(desc: string, isDone:boolean): void {
     if (!desc) {
       alert("no empty values allowed");
+      //set focus back to input field newItemInput
+      this.newItemInput.nativeElement.focus();
     }
     else {
       let newItem = { description: desc, done: isDone };
       console.log("newItem", newItem);
       //add newItem at the end of the array
       this.allItems.push(newItem);
-      //set input field newItemInput value to empty
+      //set the values of the input field newItemInput & the checkbox newItemCheckbox, to empty and false respectively
       this.newItemInput.nativeElement.value = "";
       this.newItemCheckbox.nativeElement.checked = false;
       //set focus back to input field newItemInput
       this.newItemInput.nativeElement.focus();
-      //
     }
   }
 
