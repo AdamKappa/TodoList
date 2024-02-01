@@ -26,7 +26,8 @@ export class AppComponent {
    * and you have strict TypeScript compilation settings, 
    * the app will fail to compile.
    */
-  @ViewChild("newItem") newItemInput! : ElementRef;
+  @ViewChild("newItem") newItemInput!: ElementRef;
+  @ViewChild("isDone") newItemCheckbox! : ElementRef;
 
   allItems = [
     { description: "eat", done: true },
@@ -47,17 +48,18 @@ export class AppComponent {
     }
   }
 
-  addItem(desc: string): void {
+  addItem(desc: string, isDone:boolean): void {
     if (!desc) {
       alert("no empty values allowed");
     }
     else {
-      let newItem = { description: desc, done: false };
+      let newItem = { description: desc, done: isDone };
       console.log("newItem", newItem);
       //add newItem at the end of the array
       this.allItems.push(newItem);
       //set input field newItemInput value to empty
       this.newItemInput.nativeElement.value = "";
+      this.newItemCheckbox.nativeElement.checked = false;
       //set focus back to input field newItemInput
       this.newItemInput.nativeElement.focus();
       //

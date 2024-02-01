@@ -12,16 +12,20 @@
     <ul>                                 // but here I want on enter press and on button click to call the same function(addItem)
                                           // so I use the property #newItem as in below 
     -->
-    <input 
-        #newItem
-        name="new-item" 
-        id="new-item" 
-        class="new-item"
-        placeholder="new item description" 
-        (keyup.enter)="addItem(newItem.value)"
-        autofocus 
-    />
-    <button class="btn-primary" (click)="addItem(newItem.value)">Add New Item</button>
+    <div class="newItem-container">
+        <input #isDone type="checkbox" >
+        <label>set as done</label>
+        <input 
+            #newItem
+            name="new-item" 
+            id="new-item" 
+            class="newItem"
+            placeholder="new item description" 
+            (keyup.enter)="addItem(newItem.value, isDone.checked)"
+            autofocus 
+        />
+    </div>
+    <button class="btn-primary" (click)="addItem(newItem.value, isDone.checked)">Add New Item</button>
     <div class="filter-container">
         <div class="filter">
             <h5 class="filter-title">Filter: </h5>
@@ -35,7 +39,7 @@
                 (click)="filter='done'"
                 [class.active]="filter == 'done'">Done</button>
         </div>
-        <h5 class="no-dotos">Number of ToDos: {{getItems().length}}</h5>
+        <h5 class="numDotos">Number of ToDos: {{getItems().length}}</h5>
     </div>
     <ul>
         <li *ngFor="let item of getItems()" class="li-item">

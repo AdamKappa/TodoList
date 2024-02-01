@@ -1,25 +1,29 @@
 <div *ngIf="editable != true" class="item-wrapper">
-    <label class="item-desc">{{myItem.description}}</label>
+    <div>
+        <input #doneCheckbox type="checkbox" (change)="setDone(doneCheckbox.checked)">
+        <label class="item-desc" [class.done]="myItem.done">{{myItem.description}}</label>
+    </div>
     <div class="item-btn-wrapper">
         <button class="item-btn" (click)="editable = true;">📝</button>
         <button class="item-btn" (click)="deleteItem(myItem)">❌</button>
     </div>
-    
 </div>
 <div *ngIf="editable === true">
     <h5 class="edit-title">Edit Item {{myItem.description}}</h5>
     <div class="edit-wrapper">
+        <input #isDone type="checkbox" >
+        <label class="item-desc">set as done</label>
         <input
             #newDesc
             name="new-description"
             id="new-description"
             class="new-description"
             placeholder="type a new description"
-            (keyup.enter)="addNewDescription(newDesc.value)"
+            (keyup.enter)="addNewData(newDesc.value, isDone.checked)"
             value="{{myItem.description}}"
             autofocus
         />
-        <button class="edit-btn" (click)="addNewDescription(newDesc.value)">Save</button>
+        <button class="edit-btn" (click)="addNewData(newDesc.value,isDone.checked)">Save</button>
         <button class="edit-btn" (click)="cancelEditing()">Cancel</button>
     </div>
 </div>

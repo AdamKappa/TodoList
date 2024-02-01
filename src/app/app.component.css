@@ -15,12 +15,7 @@
   }
 }
 
-label {
-  font-size: 1.5rem;
-  font-weight: bold;
-  display: block;
-  padding-bottom: 1rem;
-}
+
 
 ul {
   padding-inline-start: 0;
@@ -31,11 +26,19 @@ ul {
   margin: 5px;
 }
 
-.new-item{
+.newItem-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.newItem{
   width: 50%;
   height: 30px;
 }
-.no-dotos{
+.numDotos{
   margin: 0 10px 0 0;
   text-align: right;
 }
@@ -61,3 +64,4 @@ ul {
 .active {
   color: lime;
 }
+
