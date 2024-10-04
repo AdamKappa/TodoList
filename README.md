@@ -2,9 +2,6 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
 
-Sure! Here’s a README file for your Angular app based on the provided code snippet:
-
-```markdown
 # Angular Todo Item Component
 
 A simple Angular component for managing todo items, allowing users to create, edit, and delete tasks.
