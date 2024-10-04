@@ -1,9 +1,6 @@
-# Todo
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
-
 # Angular Todo Application
 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
 A simple Angular application for managing a todo list. Users can add, edit, delete, and mark tasks as complete.
 
 ## Table of Contents
@@ -35,12 +32,12 @@ A simple Angular application for managing a todo list. Users can add, edit, dele
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/angular-todo-app.git
+   git clone https://github.com/AdamKappa/TodoList.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd angular-todo-app
+   cd TodoList
    ```
 
 3. Install the dependencies:
